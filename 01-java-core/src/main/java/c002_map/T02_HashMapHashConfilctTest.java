@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package xyz.flysium.photon.c002_map;
+package c002_map;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;

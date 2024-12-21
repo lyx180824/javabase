@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package xyz.flysium.photon.samples;
+package samples;
 
 import java.util.SortedMap;
 import java.util.TreeMap;

@@ -22,31 +22,54 @@
  * SOFTWARE.
  */
 
-package xyz.flysium.photon.c002_map;
+package samples;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.invoke.MethodHandles;
-import java.lang.reflect.Method;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
 
 /**
- * @author zeno (Sven Augustus)
+ * 使用<code>LinkedHashMap</code>实现 LRU Cache
+ *
+ * @author Sven Augustus
  * @version 1.0
  */
-public class T01_HashMap {
+public class LRUCache {
 
-  public static void main(String[] args) throws Throwable {
-    System.out.println(getCapacity(new HashMap<>(0)));
-    System.out.println(getCapacity(new HashMap<>(10)));
-    System.out.println(getCapacity(new HashMap<>(16)));
-    System.out.println(getCapacity(new HashMap<>(17)));
+  public static void main(String[] args) {
+    LRUCacheImpl<Integer, Integer> cache = new LRUCacheImpl<>(10);
+    for (int i = 0; i < 10; i++) {
+      int p = i + 1;
+      cache.put(p, null);
+    }
+    for (int i = 0; i < 10; i++) {
+      int p = i + 1;
+      if (p != 5) {
+        cache.get(p);
+      }
+    }
+    cache.get(2);
+    cache.get(2);
+    cache.get(2);
+    cache.get(1);
+
+    System.out.println(cache);
+    cache.put(11, null);
+    System.out.println(cache);
   }
 
-  public static int getCapacity(HashMap<?, ?> m) throws Throwable {
-    Method declaredMethod = HashMap.class.getDeclaredMethod("capacity");
-    declaredMethod.setAccessible(true);
-    MethodHandle handle = MethodHandles.lookup().unreflect(declaredMethod);
-    return (int) handle.invoke(m);
+  static class LRUCacheImpl<K, V> extends LinkedHashMap<K, V> {
+
+    private final int maxThreshold;
+
+    public LRUCacheImpl(int maxThreshold) {
+      super((int) (maxThreshold / 0.75f) + 1, 0.75f, true);
+      this.maxThreshold = maxThreshold;
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Entry eldest) {
+      return size() >= maxThreshold;
+    }
   }
 
 }

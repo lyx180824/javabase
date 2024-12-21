@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package xyz.flysium.photon.c000_generic;
+package c000_generic;
 
 import java.util.ArrayList;
 import java.util.List;

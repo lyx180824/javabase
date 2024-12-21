@@ -1,4 +1,4 @@
-package xyz.flysium.photon.c002_map;
+package c002_map;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;

@@ -23,7 +23,7 @@
  *//*
 
 
-package xyz.flysium.photon.c002_map;
+package c002_map;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.ref.WeakReference;
@@ -32,8 +32,8 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
-import xyz.flysium.photon.c002_map.T03_MyWeakHashMap.MyNotCorrectWeakHashMap.MyEntry0;
-import xyz.flysium.photon.c002_map.T03_MyWeakHashMap.MySampleWeakHashMap.MyEntry;
+import c002_map.T03_MyWeakHashMap.MyNotCorrectWeakHashMap.MyEntry0;
+import c002_map.T03_MyWeakHashMap.MySampleWeakHashMap.MyEntry;
 
 */
 /**
